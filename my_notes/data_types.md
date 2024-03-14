@@ -1,4 +1,4 @@
-**Data Types and Structures in R:**
+**Data Types and Data Structures in R:**
 
 1. **Data Types:**
    - **Numeric:** Represented by integers or decimals. Example:
