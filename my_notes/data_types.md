@@ -1,6 +1,13 @@
 **Data Types and Data Structures in R:**
 
-1. **Data Types:**
+1. [Data Types](#data-types)
+2. [Data Structures](#data-structures)
+3. [Coercing Types](#coercing-types)
+4. [Cleanup](#cleanup)
+
+---
+
+1. **Data Types:** <a name="data-types"></a>
    - **Numeric:** Represented by integers or decimals. Example:
      ```R
      n1 <- 15
@@ -17,7 +24,7 @@
      typeof(l1)  # Output: "logical"
      ```
 
-2. **Data Structures:**
+2. **Data Structures:** <a name="data-structures"></a>
    - **Vector:** One-dimensional set of the same data type. Example:
      ```R
      v1 <- c(1, 2, 3, 4, 5)
@@ -54,7 +61,7 @@
      list2 <- list(o1, o2, o3, list1)  # Lists within lists!
      ```
 
-3. **Coercing Types:**
+3. **Coercing Types:** <a name="coercing-types"></a>
    - Converting variables from one data type to another.
 
       Example - Coerce Numeric to Integer:
@@ -80,7 +87,7 @@
         (coerce7 <- as.data.frame(matrix(1:9, nrow= 3)))
         is.data.frame(coerce7) # Output: TRUE
         ```
-4. **Cleanup:**
+4. **Cleanup:** <a name="cleanup"></a>
    - Restarting R or clearing objects from the environment can be done to clean up. Example:
      ```R
      rm(list = ls())  # Clears all objects from the workspace
