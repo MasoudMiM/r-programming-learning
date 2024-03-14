@@ -26,6 +26,7 @@
    - **Matrix:** Two-dimensional set of the same data type. Example:
      ```R
      m1 <- matrix(c(T, T, F, F, T, F), nrow = 2)
+     is.matrix(m1) # Output: TRUE
 
      ```
    - **Array:** Multi-dimensional set of the same data type. Example:
@@ -40,6 +41,7 @@
      vLogical   <- c(T, F, T)
 
      df2 <- data.frame(vNumeric, vCharacter, vLogical)
+     is.data.frame(df2) # Output: TRUE
      ```
    - **List:** A collection of objects of different types. Example:
      ```R
@@ -53,14 +55,31 @@
      ```
 
 3. **Coercing Types:**
-   - Converting variables from one data type to another. Example:
-     ```R
-     coerce4 <- c("1", "2", "3")
-     typeof(coerce4)  # Output: "character"
+   - Converting variables from one data type to another.
 
-     coerce5 <- as.numeric(c("1", "2", "3"))
-     typeof(coerce5)  # Output: "double"
-     ```
+      Example - Coerce Numeric to Integer:
+        ```R
+        (coerce2 <- 5)
+        typeof(coerce2)
+
+        (coerce3 <- as.integer(5))
+        typeof(coerce3)
+        ``` 
+      Example - Coerce Character to Numeric:
+        ```R
+        coerce4 <- c("1", "2", "3")
+        typeof(coerce4)  # Output: "character"
+
+        coerce5 <- as.numeric(c("1", "2", "3"))
+        typeof(coerce5)  # Output: "double"
+        ```
+      Example - Coerce Matrix to Data Frame:
+        ```R 
+        (coerce6 <- matrix(1:9, nrow= 3))
+        is.matrix(coerce6) # Output: TRUE
+        (coerce7 <- as.data.frame(matrix(1:9, nrow= 3)))
+        is.data.frame(coerce7) # Output: TRUE
+        ```
 4. **Cleanup:**
    - Restarting R or clearing objects from the environment can be done to clean up. Example:
      ```R
