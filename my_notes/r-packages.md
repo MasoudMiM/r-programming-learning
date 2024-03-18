@@ -37,7 +37,7 @@
 
 4. **Using Functions Without Loading Packages:** <a name="using-functions"></a>
   
-    Use package::functionName syntax to use specific functions without loading the entire package. Helpful when dealing with conflicting function names or when only specific functions are needed.
+    Use `package::functionName` syntax to use specific functions without loading the entire package. This is helpful when dealing with conflicting function names or when only specific functions are needed.
 
       ```R
       pacman::p_data(datasets)
@@ -45,7 +45,7 @@
 
 5. **Unloading and Deleting Packages** <a name="unload-packages"></a>
 
-    Unload a package with detach("package:packageName", unload = TRUE).
+    Unload a package with `detach("package:packageName", unload = TRUE)`.
 
     - Manual unloading is typically needed only for R's built-in packages.
     - For third-party packages like pacman, restarting R will unload them.
