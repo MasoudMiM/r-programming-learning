@@ -1,4 +1,4 @@
-**Data Types and Data Structures in R:**
+**Packages in R:**
 
 1. [Introduction](#intro)
 2. [Installing Packages](#install-packages)
