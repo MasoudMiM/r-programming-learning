@@ -3,7 +3,7 @@
 1. [Introduction](#intro)
 2. [Installing Packages](#install-packages)
 3. [Loading Packages](#loading-packages)
-4. [Using Functions Without Loading Packages](#coercing-types)
+4. [Using Functions Without Loading Packages](#using-functions)
 5. [Unloading and Deleting Packages](#unload-packages)
 
 ---
@@ -35,7 +35,7 @@
       library(pacman)
       ```
 
-4. **Using Functions Without Loading Packages:** <a name="cleanup"></a>
+4. **Using Functions Without Loading Packages:** <a name="using-functions"></a>
   
     Use package::functionName syntax to use specific functions without loading the entire package. Helpful when dealing with conflicting function names or when only specific functions are needed.
 
