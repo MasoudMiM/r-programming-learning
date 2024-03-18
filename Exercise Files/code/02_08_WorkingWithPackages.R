@@ -29,7 +29,7 @@ require(pacman)  # Typically used inside functions; gives a
 # USING A FUNCTION WITHOUT LOADING A PACKAGE ###############
 
 # Package must be installed but does not need to be loaded;
-# also helpful when two packages have functions with 
+# also helpful when two packages have functions with
 # conflicting names. Usage: package::function
 pacman::p_data(datasets)
 
