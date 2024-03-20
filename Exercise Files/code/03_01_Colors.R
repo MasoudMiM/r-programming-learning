@@ -51,6 +51,7 @@ barplot(x, col = c("#9FB6CD", "#CD0000"))
 
 ?palette  # Info on palettes
 palette() # See current palette
+palette.pals() # returns a character vector giving the names of predefined palettes.
 
 barplot(x, col = 1:6)                # Use current palette
 barplot(x, col = rainbow(6))         # Rainbow colors
