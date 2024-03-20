@@ -18,7 +18,7 @@ library(readxl)     # `readxl` is installed as part of the
 
 # Import CSV files with readr::read_csv() from tidyverse;
 # data is saved as a "tibble"
-df <- read_csv("data/state_trends.csv")
+df <- read_csv("r-programming-learning/Exercise Files/data/state_trends.csv")
 
 # Check data
 df           # See first ten lines of tibble
@@ -33,7 +33,7 @@ glimpse(df)  # See full variable names and types
 # Specify outcome with df$y
 
 df2 <- read_excel(
-    "data/state_trends.xlsx", 
+    "r-programming-learning/Exercise Files/data/state_trends.xlsx",
     sheet = "all_data"
   ) |>
   as_tibble() |>
