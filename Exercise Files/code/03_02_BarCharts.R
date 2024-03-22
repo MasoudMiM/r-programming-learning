@@ -13,7 +13,7 @@ library(readxl)     # Reads CSV and Excel files
 # LOAD DATA ################################################
 
 # Also convert several adjacent variables to factors
-df <- read_csv("data/state_trends.csv") |>
+df <- read_csv("Exercise Files/data/state_trends.csv") |>
   mutate(across(c(region:psy_reg), factor)) |>
   print()
 

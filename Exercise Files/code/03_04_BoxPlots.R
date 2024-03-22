@@ -13,7 +13,7 @@ library(readxl)     # Reads CSV and Excel files
 # LOAD DATA ################################################
 
 # Also convert all character variables to factors
-df <- read_csv("data/state_trends.csv") |>
+df <- read_csv("Exercise Files/data/state_trends.csv") |>
   mutate(across(where(is_character), as_factor)) |>
   print()
 
@@ -26,7 +26,7 @@ df <- read_csv("data/state_trends.csv") |>
 boxplot(df$dance)
 
 # Who is the outlier?
-df |> 
+df |>
   filter(dance > 90) |>
   select(state, dance)
 
@@ -49,7 +49,7 @@ df |>
   boxplot()
 
 # Who are the outliers on "hockey"?
-df |> 
+df |>
   filter(hockey > 45) |>
   select(state, hockey) |>
   arrange(desc(hockey))

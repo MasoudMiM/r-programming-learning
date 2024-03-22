@@ -12,7 +12,7 @@ library(readxl)     # Reads CSV and Excel files
 
 # LOAD DATA ################################################
 
-df <- read_csv("data/state_trends.csv")
+df <- read_csv("Exercise Files/data/state_trends.csv")
 
 # HISTOGRAM ################################################
 
@@ -41,7 +41,10 @@ plot(density(df$data_science))
 
 # Density plot with options
 df |>
-  pull(data_science) |>  # Use pull() instead of select()
+  # Use pull() instead of select() - when you are getting a 
+  # single variable where you need all the values available
+  # as a vector, you need to use pull instead of select
+  pull(data_science) |>
   as.numeric() |>        # Coerces to numeric variable
   density() |>           # Draws density curve
   plot(
