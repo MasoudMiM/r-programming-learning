@@ -215,3 +215,105 @@
          col        = "#CD0000"  # Red color
        )
      ```
+
+## 4. Scatterplots
+
+### 4.1 Loading Data
+   - Load your dataset into R using the `read_csv` function.
+   - Select the relevant columns for analysis.
+   - Example:
+     ```R
+     df <- read_csv("Exercise Files/data/state_trends.csv") |>
+       select(basketball:hockey) |>
+       glimpse()
+     ```
+
+### 4.2 Scatterplots
+   - Scatterplots are useful for visualizing the relationship between two numerical variables.
+   - Use the `plot()` function to create scatterplots.
+   - Example:
+     ```R
+     # Plot all associations
+     df |> plot()
+
+     # Bivariate scatterplot with defaults
+     df |>
+       select(soccer, hockey) |> 
+       plot()
+
+     # Bivariate scatterplot with options
+     df |>
+       select(soccer, hockey) |> 
+       plot(
+         main = "Scatterplot of Searches by State",
+         xlab = "Searches for \"Soccer\"",
+         ylab = "Searches for \"Hockey\"",
+         col  = "red3",  # Color of points
+         pch  = 20,      # "Plotting character" (small circle)
+       )
+     ```
+   - The `col` parameter sets the color of the points, and `pch` specifies the plotting character. You can refer to `?pch` for a list of available plotting characters.
+
+### 4.3 Linear Regression Line
+   - You can add a fitted linear regression line to the scatterplot to visualize the trend.
+   - Use the `lm()` function to fit a linear regression model, and `abline()` to plot the regression line.
+   - Example:
+     ```R
+     # Add fit linear regression line (y ~ x)
+     lm(df$hockey ~ df$soccer) |>
+       abline()
+     ```
+
+## 5. Line Charts
+
+### 5.1 Single Time Series
+   - Load necessary packages, such as `datasets`, to access built-in datasets.
+   - For single time series data, use appropriate functions to visualize.
+   - Example with `uspop` dataset:
+     ```R
+     # Plot with default plot()
+     plot(uspop)
+
+     # Plot with options
+     uspop |> 
+       plot(
+         main = "US Population 1790–1970",
+         sub  = "(Source: datasets::uspop)",
+         xlab = "Year",
+         ylab = "Population (in millions)",
+       )
+     # Adding vertical lines and text
+     abline(v = 1930, col = "lightgray")
+     text(1930, 10, "1930", col = "red3")
+     abline(v = 1940, col = "lightgray")
+     text(1940, 10, "1940", col = "red3")
+     ```
+
+### 5.2 Multiple Time Series
+   - For multiple time series data, utilize appropriate functions to plot.
+   - Example with `EuStockMarkets` dataset:
+     ```R
+     # Three different plot functions
+     plot(EuStockMarkets)     # Stacked windows
+     plot.ts(EuStockMarkets)  # Identical to plot() - Stacked windows
+     ts.plot(EuStockMarkets)  # One window
+
+     # Plot with options
+     ts.plot(
+       EuStockMarkets,
+       col = rainbow(4)  # Color lines
+     )
+
+     # Adding legend
+     legend(
+       "topleft",  # Position
+       legend = colnames(EuStockMarkets),  # Names for legend
+       col = rainbow(4),  # Colors for legend
+       lty = 1  # Line type: solid
+     )
+     ```
+
+### 5.3 Key Points
+   - Understand the differences between single and multiple time series data.
+   - Choose appropriate plotting functions based on the complexity of the data and desired customization options.
+   - Utilize additional functions like `abline()` and `text()` to add annotations to your plots.

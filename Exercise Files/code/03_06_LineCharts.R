@@ -28,38 +28,40 @@ uspop |>
     xlab = "Year",
     ylab = "Population (in millions)",
   )
-abline(v = 1930, col = "lightgray")
-text(1930, 10, "1930", col = "red3") 
-abline(v = 1940, col = "lightgray")
-text(1940, 10, "1940", col = "red3") 
+# you have to first make the chart and then add these options
+abline(v = 1930, col = "lightgray")  # add a vertical line in 1930
+text(1930, 10, "1930", col = "red3") # putting text on the chart
+abline(v = 1940, col = "lightgray") # add a vertical line in 1940
+text(1940, 10, "1940", col = "red3") # putting text on the chart
 
-# Plot with ts.plot()
+# Plot with ts.plot() for time series data
 ?ts.plot
 # Although this can be used for a single time series, plot
 # is easier to use and is preferred.
 ts.plot(uspop)
 
-# Plot with plot.ts()
+# Plot with plot.ts() for time series data which gives you more options
 # More powerful alternative
 ?plot.ts
 plot.ts(uspop)
 
 # MULTIPLE TIME SERIES #####################################
 
-# EuStockMarkets
+# EuStockMarkets - this is an object of class "mts" (multiple time series)
 # DAX (Germany), SMI (Switzerland), CAC (France), FTSE (UK)
 ?EuStockMarkets
 EuStockMarkets
 
 # Three different plot functions
 plot(EuStockMarkets)     # Stacked windows
-plot.ts(EuStockMarkets)  # Identical
+plot.ts(EuStockMarkets)  # Identical to plot() - Stacked windows
 ts.plot(EuStockMarkets)  # One window
 
 # Plot with options
 ts.plot(
   EuStockMarkets,
   col = rainbow(4))  # Color lines
+
 legend(              # Add legend
   "topleft",         # Position
   legend = colnames(EuStockMarkets),  # Names for legend
