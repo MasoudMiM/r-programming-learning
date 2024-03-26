@@ -13,7 +13,7 @@ library(readxl)     # Reads CSV and Excel files
 # LOAD DATA ################################################
 
 # Also convert several adjacent variables to factors
-df <- read_csv("data/state_trends.csv") |>
+df <- read_csv("Exercise Files/data/state_trends.csv") |>
   select(state, region, psych_region, data_analysis) |>
   mutate(across(c(region:psych_region), as_factor)) |>
   print()
@@ -36,21 +36,21 @@ df |>
 
 # "or" is the vertical pipe |
 df |>
-  filter(region == "South" | 
-    psych_region == "Relaxed and Creative") |>
+  filter(region == "South" |
+  psych_region == "Relaxed and Creative") |>
   arrange(region, psych_region) |>  # Sorts output
   print(n = Inf)  # Print all rows
 
 # "and" is the ampersand &
 df |>
-  filter(region == "South" & 
-    psych_region == "Relaxed and Creative") |>
+  filter(region == "South" &
+  psych_region == "Relaxed and Creative") |>
   print()
 
 # "not" is the exclamation point !
 df |>
-  filter(region == "South" & 
-    !psych_region == "Relaxed and Creative") |>
+  filter(region == "South" &
+  !psych_region == "Relaxed and Creative") |>
   arrange(psych_region, desc(data_analysis)) |>
   print()
 

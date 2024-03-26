@@ -13,7 +13,7 @@ library(readxl)     # Reads CSV and Excel files
 # LOAD DATA ################################################
 
 # Also convert all character variables to factors
-df <- read_csv("data/state_trends.csv") |>
+df <- read_csv("Exercise Files/data/state_trends.csv") |>
   mutate(across(where(is_character), as_factor)) |>
   print()
 
@@ -36,7 +36,7 @@ df |>
       art > 75 | dance > 75 | museum > 75 ~ "yes",
       TRUE ~ "no"  # All other values
     )
-  ) |> 
+  ) |>
   select(state_code, like_arts, art:museum) |>
   arrange(desc(like_arts)) |>  # Put yes at top
   print(n = Inf)               # Show all cases

@@ -13,14 +13,14 @@ library(readxl)     # Reads CSV and Excel files
 # LOAD DATA ################################################
 
 # Also convert several adjacent variables to factors
-df <- read_csv("data/state_trends.csv") |>
+df <- read_csv("Exercise Files/data/state_trends.csv") |>
   select(region:psy_reg) |> 
   mutate(across(c(psych_region, psy_reg), as_factor)) |>
   print()
 
 # SUMMARIZE DATAFRAME ######################################
 
-summary(df)  # Gives frequencies for factors only
+summary(df)
 
 # SUMMARIZE CATEGORICAL VARIABLE ###########################
 
@@ -31,7 +31,8 @@ df |>
   select(region) |>
   summary()
 
-# table() works better
+# to get more clea insights about character typevariable
+# it is better to use table() and it works better
 df |> 
   select(region) |>
   table()
