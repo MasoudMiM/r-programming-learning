@@ -13,22 +13,26 @@ library(readxl)     # Reads CSV and Excel files
 # LOAD DATA ################################################
 
 # Select state codes and search data
-df <- read_csv("data/state_trends.csv") |>
+df <- read_csv("Exercise Files/data/state_trends.csv") |>
   select(state_code, artificial_intelligence:hockey)
 
 # ANALYZE DATA #############################################
+
+# Cluster charts are a way of looking at the associattions
+# between the cases and not the variables
 
 # Calculate clusters using hclust(), an agglomerative method
 hc <- df |>  # Get data
   dist() |>  # Compute distance/dissimilarity matrix
   hclust()   # Compute hierarchical clusters
 
-# Plot dendrogram
+# Plot dendrogram 
 hc |> plot(labels = df$state_code)
 
 # Draw boxes around clusters
 hc |> rect.hclust(k = 2, border = "gray80")  # 2 boxes
 hc |> rect.hclust(k = 3, border = 2:4)       # 3 boxes
+# this plot uses colors 2 to 4 from the current pallette
 
 # CLEAN UP #################################################
 

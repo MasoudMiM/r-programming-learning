@@ -1,4 +1,4 @@
-**Data Types and Data Structures in R:**
+**Data Types and Data Structures in R**
 
 1. [Data Types](#data-types)
 2. [Data Structures](#data-structures)

@@ -1,6 +1,13 @@
-# Plotting in R
+**Plots in R**
 
-## 1. Barplots
+1. [Barplots](#barplots)
+2. [Histograms & Density Plots](#histograms)
+3. [Boxplots](#boxplots)
+4. [Scatterplots](#scatterplots)
+5. [Line Charts](#linecharts)
+6. [Clustering Charts](#clusteringcharts)
+
+## 1. Barplots <a name="barplots"></a>
 
 ### 1.1 Loading Packages
    - Utilize `tidyverse` collection and `readxl` for data manipulation and reading Excel files, respectively.
@@ -74,7 +81,7 @@
    - Pipes (`|>`) can simplify code and enhance readability.
    - Understand the difference between simple barplots, stacked, and side-by-side barplots and when to use each.
 
-## 2. Histograms & Density Plots
+## 2. Histograms & Density Plots <a name="histograms"></a>
 
 ### 2.1 Loading Data
    - To begin, load your data into R using the `read_csv` function from the `readr` package. This function reads comma-separated values (CSV) files.
@@ -140,7 +147,7 @@
      ```
    - This code adds a filled density plot on top of an existing density plot. The `col` parameter specifies the fill color.
 
-## 3. Boxplots
+## 3. Boxplots <a name="boxplots"></a>
 
 ### 3.1 Loading Data
    - Load your dataset into R using the `read_csv` function.
@@ -216,7 +223,7 @@
        )
      ```
 
-## 4. Scatterplots
+## 4. Scatterplots <a name="scatterplots"></a>
 
 ### 4.1 Loading Data
    - Load your dataset into R using the `read_csv` function.
@@ -264,7 +271,7 @@
        abline()
      ```
 
-## 5. Line Charts
+## 5. Line Charts <a name="linecharts"></a>
 
 ### 5.1 Single Time Series
    - Load necessary packages, such as `datasets`, to access built-in datasets.
@@ -317,3 +324,41 @@
    - Understand the differences between single and multiple time series data.
    - Choose appropriate plotting functions based on the complexity of the data and desired customization options.
    - Utilize additional functions like `abline()` and `text()` to add annotations to your plots.
+
+
+## 6. Clustering Charts <a name="clusteringcharts"></a>
+
+### 6.1 Loading Data
+   - Load your dataset into R using the `read_csv` function.
+   - Select the relevant columns for analysis.
+   - Example:
+     ```R
+     # Select state codes and search data
+     df <- read_csv("Exercise Files/data/state_trends.csv") |>
+       select(state_code, artificial_intelligence:hockey)
+     ```
+
+### 6.2 Analyzing Data
+   - Cluster charts are used to visualize associations between cases rather than variables.
+   - Calculate clusters using hierarchical clustering with the `hclust()` function.
+   - Example:
+     ```R
+     # Calculate clusters using hclust()
+     hc <- df |>  # Get data
+       dist() |>  # Compute distance/dissimilarity matrix
+       hclust()   # Compute hierarchical clusters
+
+     # Plot dendrogram
+     hc |> plot(labels = df$state_code)
+
+     # Draw boxes around clusters
+     hc |> rect.hclust(k = 2, border = "gray80")  # 2 boxes
+     hc |> rect.hclust(k = 3, border = 2:4)       # 3 boxes
+     # This plot uses colors 2 to 4 from the current palette
+     ```
+
+### 6.3 Key Points
+   - Cluster charts provide insights into the associations between cases in your data.
+   - Hierarchical clustering with dendrogram plots helps visualize the clustering structure.
+   - Use `rect.hclust()` to draw boxes around clusters for better interpretation.
+
