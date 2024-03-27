@@ -13,10 +13,9 @@ library(readxl)     # Reads CSV and Excel files
 # LOAD DATA ################################################
 
 # Also convert several adjacent variables to factors
-df <- read_csv("data/state_trends.csv") |>
+df <- read_csv("Exercise Files/data/state_trends.csv") |>
   mutate(across(c(
-    region, psych_region, psy_reg, has_nba:has_any
-    ), 
+    region, psych_region, psy_reg, has_nba:has_any),
     as_factor)
   ) |>
   print()
@@ -33,7 +32,7 @@ df |>
 
 # QUARTILES ################################################
 
-# Tukey's five-number summary: minimum, lower-hinge,
+# Tukey's five-number summary, developed by Tukey: minimum, lower-hinge,
 # median, upper-hinge, maximum. No labels.
 fivenum(df$statistics)
 
@@ -43,6 +42,8 @@ boxplot.stats(df$statistics)
 
 # PACKAGES #################################################
 
+# If you want additional options or more control over what is going on
+# try using the "psych" package.
 # The "psych" package gives many more options
 browseURL("https://CRAN.R-project.org/package=psych")
 

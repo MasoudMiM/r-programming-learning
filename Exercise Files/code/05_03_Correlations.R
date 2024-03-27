@@ -13,7 +13,7 @@ library(readxl)     # Reads CSV and Excel files
 # LOAD DATA ################################################
 
 # Also convert several adjacent variables to factors
-df <- read_csv("data/state_trends.csv") |>
+df <- read_csv("Exercise Files/data/state_trends.csv") |>
   select(  # Rename variables with `select`
     DS = data_science,  # New = old
     AI = artificial_intelligence,
@@ -21,7 +21,7 @@ df <- read_csv("data/state_trends.csv") |>
     DA = data_analysis,
     BI = business_intelligence,
     SS = spreadsheet,
-    Stats = statistics) |> 
+    Stats = statistics) |>
   print()
 
 # CORRELATION MATRIX #######################################

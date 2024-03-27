@@ -13,14 +13,16 @@ library(readxl)     # Reads CSV and Excel files
 # LOAD DATA ################################################
 
 # Also convert all variables to factors
-df <- read_csv("data/state_trends.csv") |>
+df <- read_csv("Exercise Files/data/state_trends.csv") |>
   select(region, psy_reg) |> 
   mutate(across(everything(), as_factor)) |>
   print()
 
 # ANALYZE DATA #############################################
+# contingency table - when you are dealing with
+# two nominal or categorical variables
 
-# Create contingency table
+# Create contingency table - 
 ct <- table(df$region, df$psy_reg)
 ct
 
@@ -43,18 +45,17 @@ ct |>
   prop.table() |>  # No argument for total percentages
   round(2) * 100
 
-# Chi-squared test (but n is small)
+# Chi-squared test (but n is small - so kinda useless)
 tchi <- chisq.test(ct)
 tchi
-
 # Get p-value  in one step
 table(df$region, df$psy_reg) |> chisq.test()
 
 # Additional tables
-tchi$observed   # Observed frequencies (same as ct)
-tchi$expected   # Expected frequencies
-tchi$residuals  # Pearson's residual
-tchi$stdres     # Standardized residual
+tchi$observed   # Observed frequencies (same as ct - original data)
+tchi$expected   # Expected frequencies 
+tchi$residuals  # Pearson's residual (difference between observed and expected)
+tchi$stdres     # Standardized residual (residual divided by expected)
 
 # CLEAN UP #################################################
 
