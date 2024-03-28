@@ -53,7 +53,7 @@ NOTES:
 - `select()` and `rename()` functions help in choosing and renaming columns.
 - `mutate()` is useful for creating or modifying columns (e.g., converting to factors).
 
-## **4. Importing Excel Files** <a name="import-json"></a>
+## **4. Importing JSON Files** <a name="import-json"></a>
 
 JSON (JavaScript Object Notation) files are commonly used for structured data storage. R provides the `jsonlite::fromJSON()` function within the tidyverse for importing JSON files.
 
